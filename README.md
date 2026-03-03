@@ -81,6 +81,7 @@ GOOGLE_API_KEY=your_gemini_api_key
 Bash
 npm run dev
 Navigate to: http://localhost:3000
+```
 
 🧠 Key Engineering Decisions
 1. Server Actions vs. Separate Backend
@@ -92,9 +93,8 @@ To solve region-specific API limitations, the system fetches en-US reviews first
 3. AI Failure Fallback
 In case of Gemini API rate limits or network issues, a local keyword-based sentiment analyzer takes over, ensuring the UI remains functional and informative.
 
-👨‍💻 Author
-Shoaib Ahamad Mev Full Stack Developer
+## 👨‍💻 Author
+* Shoaib Ahamad Mev 
 
-🔗 Portfolio
-
-🔗 GitHub
+  🔗 Portfolio
+  🔗 GitHub
