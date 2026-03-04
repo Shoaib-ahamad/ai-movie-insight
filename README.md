@@ -1,15 +1,11 @@
 # 🎬 AI Movie Insight Builder
 
-An AI-powered full-stack application that converts IMDb movie IDs into structured audience sentiment insights—including overall sentiment, pros & cons, and a quick “vibe check” summary.
-
-[![Live Demo](https://img.shields.io/badge/🔗_Live_Demo-Link-green?style=for-the-badge)](https://ai-movie-insight-orpin.vercel.app/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
-[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![AI](https://img.shields.io/badge/Google_Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
+An AI-powered full-stack application that transforms raw IMDb movie IDs into structured audience sentiment insights—including overall sentiment, pros & cons, and a quick “vibe check” summary.
 
 ---
 
 ## 📌 Project Overview
+
 Instead of manually reading hundreds of reviews, users can enter a movie’s IMDb ID (e.g., `tt1375666`) and instantly get:
 
 * **🎥 Movie Metadata**: High-quality posters, cast lists, and plot overviews.
@@ -24,18 +20,17 @@ The system combines **TMDB APIs** with **Gemini Pro** to transform raw, messy re
 
 ## 🏗️ Architecture & Flow
 
-
-
-1.  **User Input**: Receives IMDb ID.
-2.  **Next.js Server Action**: Securely processes the request.
-3.  **Fetch Metadata**: Pulls details from TMDB API.
-4.  **Dual Review Strategy**: Retrieves English-specific or Global reviews.
-5.  **AI Processing**: Gemini Pro analyzes and structures the review text.
-6.  **Output**: Returns a modern, glassmorphic UI result.
+1. **User Input**: Receives IMDb ID.
+2. **Next.js Server Action**: Securely processes the request.
+3. **Fetch Metadata**: Pulls details from TMDB API.
+4. **Dual Review Strategy**: Retrieves English-specific or Global reviews.
+5. **AI Processing**: Gemini Pro analyzes and structures the review text.
+6. **Output**: Returns a modern, glassmorphic UI result.
 
 ---
 
 ## ✨ Core Features
+
 * **AI-Based Sentiment Analysis**: Real-time classification using LLMs.
 * **Automated Feature Extraction**: Pulls Pros & Cons from review text.
 * **Region-Safe Fetching**: Dual-fetch strategy ensures reviews are found globally.
@@ -47,54 +42,91 @@ The system combines **TMDB APIs** with **Gemini Pro** to transform raw, messy re
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 * React 18 & Next.js 14 (App Router)
 * Tailwind CSS (Styling)
 * Framer Motion (Animations)
 * Lucide Icons
 
 ### Backend & AI
+
 * Next.js Server Actions (Secure Backend logic)
 * TMDB API (Movie Data)
 * Google Gemini Pro (LLM)
 
 ### Deployment
+
 * Vercel (Production Hosting)
 
 ---
 
-## ⚙️ Local Setup
+## ⚙️ Setup & Installation
 
 ### 1. Clone the Repository
-```bash
-git clone [https://github.com/Shoaib-ahamad/ai-movie-insight.git](https://github.com/Shoaib-ahamad/ai-movie-insight.git)
-cd ai-movie-insight
-2. Install Dependencies
-Bash
-npm install
-3. Add Environment Variables
-Create a .env.local file in the root directory:
 
-Code snippet
-TMDB_API_KEY=your_tmdb_api_key
-GOOGLE_API_KEY=your_gemini_api_key
-4. Run Development Server
-Bash
-npm run dev
-Navigate to: http://localhost:3000
+```bash
+git clone https://github.com/Shoaib-ahamad/ai-movie-insight.git
+cd ai-movie-insight
+
 ```
 
-🧠 Key Engineering Decisions
-1. Server Actions vs. Separate Backend
+### 2. Install Dependencies
+
+```bash
+npm install
+
+```
+
+### 3. Add Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+TMDB_API_KEY=your_tmdb_api_key
+GOOGLE_API_KEY=your_gemini_api_key
+
+```
+
+### 4. Run Development Server
+
+```bash
+npm run dev
+
+```
+
+Navigate to: `http://localhost:3000`
+
+---
+
+## 🧠 Key Engineering Decisions
+
+### 1. Server Actions vs. Separate Backend
+
 I utilized Next.js Server Actions to protect sensitive API keys and reduce architectural complexity, eliminating the need for a separate Express server.
 
-2. Dual Review Fetch Strategy
-To solve region-specific API limitations, the system fetches en-US reviews first and falls back to a global fetch if the list is empty, ensuring consistent data availability.
+### 2. Dual-Layer Review Fetch Strategy
 
-3. AI Failure Fallback
+To solve region-specific API limitations, the system fetches `en-US` reviews first and falls back to a global fetch if the list is empty, ensuring consistent data availability.
+
+### 3. AI Failure Fallback
+
 In case of Gemini API rate limits or network issues, a local keyword-based sentiment analyzer takes over, ensuring the UI remains functional and informative.
 
-## 👨‍💻 Author
-* Shoaib Ahamad Mev 
+---
 
-  🔗 Portfolio
-  🔗 GitHub
+## 📝 Assumptions & Constraints
+
+* **Input Format**: The application assumes IMDb IDs follow the standard `tt1234567` format.
+* **Review Length**: Reviews below a 50-character threshold are filtered to ensure AI analysis quality.
+* **Data Latency**: Sentiment accuracy and generation speed are subject to the response times of the Gemini and TMDB APIs.
+
+---
+
+## 👨‍💻 Author
+
+**Shoaib Ahamad Mev** *Full Stack Developer*
+
+* 🔗 [Portfolio](https://shoaib-ahamad.netlify.app)
+* 🔗 [GitHub](https://github.com/Shoaib-ahamad)
+
+---
